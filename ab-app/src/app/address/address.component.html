@@ -1,0 +1,31 @@
+<li class="record">
+    <div class="record__cell record__cell_id">
+        <div class="record__title">ID</div>
+        <div class="record__value">{{record.id}}</div>
+    </div>
+    <div class="record__cell record__cell_name">
+        <div class="record__title">Name</div>
+        <div class="record__value" *ngIf="!state; else input1">{{record.name}}</div>
+    </div>
+    <div class="record__cell record__cell_phone">
+        <div class="record__title">Phone</div>
+        <div class="record__value" *ngIf="!state; else input2">{{record.phone}}</div>
+    </div>
+    <div class="record__cell record__cell_email">
+        <div class="record__title">Email</div>
+        <div class="record__value" *ngIf="!state; else input3">{{record.email}}</div>
+    </div>
+    <ng-template #input1><input type="text" [(ngModel)]="recordEdited.name"></ng-template>
+    <ng-template #input2><input type="text" [(ngModel)]="recordEdited.phone"></ng-template>
+    <ng-template #input3><input type="text" [(ngModel)]="recordEdited.email"></ng-template>
+    <div class="record__cell record__cell_action">
+        <div *ngIf="state; then thenBlock1 else elseBlock1"></div>
+        <ng-template #thenBlock1><button class="record__submit" (click)="edit()">submit</button></ng-template>
+        <ng-template #elseBlock1><button class="record__edit" (click)="changeState()">edit</button></ng-template>
+    </div>
+    <div class="record__cell record__cell_action">
+        <div *ngIf="state; then thenBlock2 else elseBlock2"></div>
+        <ng-template #thenBlock2><button class="record__cancel" (click)="changeState()">cancel</button></ng-template>
+        <ng-template #elseBlock2><button class="record__delete" (click)="delete()">delete</button></ng-template>
+    </div>
+</li>

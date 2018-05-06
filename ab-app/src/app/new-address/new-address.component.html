@@ -1,0 +1,18 @@
+<li class="record">
+    <div class="record__cell record__cell_id"></div>
+    <div class="record__cell record__cell_name">
+        <div class="record__title">Name</div>
+        <div class="record__value"><input type="text" [(ngModel)]="record.name"></div>
+    </div>
+    <div class="record__cell record__cell_phone">
+        <div class="record__title">Phone</div>
+        <div class="record__value"><input type="text" [(ngModel)]="record.phone"></div>
+    </div>
+    <div class="record__cell record__cell_email">
+        <div class="record__title">Email</div>
+        <div class="record__value"><input type="text" [(ngModel)]="record.email"></div>
+    </div>
+    <div class="record__cell record__cell_action">
+        <button class="record__submit" (click)="submit()">add</button>
+    </div>
+</li>

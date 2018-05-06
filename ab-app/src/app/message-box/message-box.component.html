@@ -1,0 +1,7 @@
+<div class="message-box">
+    <div *ngIf="service.isLoading; then thenTemplate else elseTemplate"></div>
+    <ng-template #thenTemplate><div class="message-box__loading"></div></ng-template>
+    <ng-template #elseTemplate>
+        <span [ngClass]="!service.success ? 'message-box__error' : ''">{{service.message}}</span>
+    </ng-template>
+</div>

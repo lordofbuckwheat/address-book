@@ -1,0 +1,17 @@
+<div class="address-book">
+    <div class="address-book__search">
+        <div class="address-book__search-bar">
+            <input #searchBox (change)="search(searchBox.value)" />
+        </div>
+        <div class="address-book__search-action">
+            <button type="submit" (click)="search(searchBox.value)">search</button>
+        </div>
+        <div class="address-book__search-action" *ngIf="!canCreate">
+            <button type="submit" (click)="search('')">reset</button>
+        </div>
+    </div>
+    <ul>
+        <app-new-address *ngIf="canCreate" (onSubmit)="add($event)"></app-new-address>
+        <app-address *ngFor="let record of records" [record]="record" (onDelete)="delete($event)"></app-address>
+    </ul>
+</div>
